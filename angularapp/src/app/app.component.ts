@@ -9,12 +9,14 @@ export class AppComponent {
   title = 'angularapp';
 
 	lugares:any = [
-		{active: true, nombre: 'floreria'},
-		{active: false, nombre: 'veterinaria'},
-		{active: true, nombre: 'hospital'}
+		{cercania: 3, distancia: 1, active: true, nombre: 'floreria'},
+		{cercania: 2, distancia: 1, active: false, nombre: 'veterinaria'},
+		{cercania: 1, distancia: 1, active: true, nombre: 'hospital'}
 	];
 	lat:number = -33.4080968;
 	lng:number = -70.6075464;
+	listo = false
+	
   constructor() {
   	setTimeout(() => {
   		this.listo = true;

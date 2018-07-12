@@ -22,7 +22,12 @@
 <br>
 mi nombre es {{nombre}}
 <ul>
-  <ng-container *ngFor="let lugar of lugares ">
-    <li *ngIf="lugar.active">{{lugar.nombre}}</li>
+  <ng-container *ngFor="let lugar of lugares; let i = index" [ngSwitch]="lugar.cercania">
+    <li [ngStyle]="{'color': (lugar.active) ? 'grey' : 'black' }" [ngClass]="{'numero_par': (i+1) % 2 != 0}">{{lugar.nombre}}
+      - 
+      <span *ngSwitchCase="1" [ngStyle]="{color: 'green' }">Muy cercana</span>
+      <span *ngSwitchCase="2" [ngStyle]="{color: 'black' }">cercano</span>
+      <span *ngSwitchCase="3" [ngStyle]="{color: 'red' }">lejano</span>
+    </li>
   </ng-container>
 </ul>
